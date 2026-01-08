@@ -1,0 +1,68 @@
+import { Testimonial } from '../types';
+
+export const testimonials: Testimonial[] = [
+  {
+    id: '1',
+    name: 'Captain Michael Okonkwo',
+    company: 'West African Shipping Lines',
+    industry: 'Commercial Shipping',
+    text: 'MarineTech Engineering has been our go-to partner for vessel maintenance for over 5 years. Their expertise in ship hull maintenance is unmatched, and their emergency response capabilities have saved us from costly downtime on multiple occasions.',
+    rating: 5,
+  },
+  {
+    id: '2',
+    name: 'Sarah Johnson',
+    company: 'Oceanic Oil & Gas Ltd',
+    industry: 'Oil & Gas',
+    text: 'Outstanding service from start to finish. Their team completed our offshore platform maintenance project ahead of schedule with zero safety incidents. The quality of work and professionalism exceeded our expectations.',
+    rating: 5,
+  },
+  {
+    id: '3',
+    name: 'Engr. Adebayo Williams',
+    company: 'Lagos Port Authority',
+    industry: 'Port Operations',
+    text: 'We\'ve worked with several marine engineering firms, but MarineTech stands out for their reliability and attention to detail. Their custom fabrication work for our port expansion was exceptional, and their team was always available to address any concerns.',
+    rating: 5,
+  },
+  {
+    id: '4',
+    name: 'David Chen',
+    company: 'Global Maritime Solutions',
+    industry: 'Maritime Logistics',
+    text: 'The certified labour supply service from MarineTech has been invaluable to our operations. Their technicians are highly skilled, safety-conscious, and always deliver quality work. We consider them an extension of our own team.',
+    rating: 5,
+  },
+  {
+    id: '5',
+    name: 'Commander James Nwosu',
+    company: 'Nigerian Navy',
+    industry: 'Naval Defense',
+    text: 'MarineTech Engineering completed our naval vessel maintenance project with the highest level of professionalism and security compliance. Their expertise in marine systems and commitment to excellence is commendable.',
+    rating: 5,
+  },
+  {
+    id: '6',
+    name: 'Isabella Rodriguez',
+    company: 'Petrochemical Transport Inc.',
+    industry: 'Petrochemical',
+    text: 'Their gas freeing and tank calibration services are second to none. The team is meticulous, follows all safety protocols, and provides detailed documentation. We trust them with our most critical operations.',
+    rating: 5,
+  },
+  {
+    id: '7',
+    name: 'Ahmed Hassan',
+    company: 'Red Sea Shipping Co.',
+    industry: 'Shipping',
+    text: 'When our cargo vessel needed emergency hull repairs, MarineTech responded within 24 hours and had us back in service in just 10 days. Their efficiency and expertise saved us hundreds of thousands in potential losses.',
+    rating: 5,
+  },
+  {
+    id: '8',
+    name: 'Dr. Emily Okeke',
+    company: 'Marine Safety Institute',
+    industry: 'Marine Safety',
+    text: 'MarineTech Engineering sets the standard for safety and quality in the marine engineering sector. Their commitment to international standards and continuous improvement is evident in every project they undertake.',
+    rating: 5,
+  },
+];
