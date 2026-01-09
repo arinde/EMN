@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Ship } from 'lucide-react';
-import { NAV_ITEMS, COMPANY_INFO } from '../../lib/constants';
-import Button from '@/components/ui/Button';
+import { Menu, X } from 'lucide-react';
+import { NAV_ITEMS } from '@/src/lib/constants';
+import Button from '@/src/components/ui/Button';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,9 +24,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const headerBg = isScrolled || !isHome ? 'bg-white shadow-lg' : 'bg-transparent';
-  const textColor = isScrolled || !isHome ? 'text-blue-900' : 'text-white';
-  const linkColor = isScrolled || !isHome ? 'text-gray-700 hover:text-blue-900' : 'text-white hover:text-orange-400';
+  // Background with blur effect when scrolled
+  const headerBg = isScrolled 
+    ? 'bg-white/80 backdrop-blur-lg shadow-lg' 
+    : isHome 
+    ? 'bg-transparent' 
+    : 'bg-white/80 backdrop-blur-lg shadow-lg';
+  
+  const textColor = isScrolled || !isHome ? 'text-blue-900' : 'text-gray-800';
+  const linkColor = isScrolled || !isHome ? 'text-gray-700 hover:text-blue-900' : 'text-gray-800 hover:text-orange-400';
 
   return (
     <motion.header
@@ -37,16 +44,21 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link href="/" className="flex items-center group">
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
+              className="relative h-16 w-auto"
             >
-              <Ship className={`h-8 w-8 ${textColor}`} />
+              <Image
+                src="/images/emn.png"
+                alt="EMN Mechanical Fabrication Services Ltd"
+                width={200}
+                height={64}
+                className="h-16 w-auto object-contain"
+                priority
+              />
             </motion.div>
-            <span className={`text-xl font-bold ${textColor} group-hover:text-orange-500 transition-colors`}>
-              {COMPANY_INFO.name}
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -90,7 +102,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t shadow-lg"
+            className="lg:hidden bg-white/95 backdrop-blur-lg border-t shadow-lg"
           >
             <div className="px-4 py-4 space-y-3 max-w-7xl mx-auto">
               {NAV_ITEMS.map((item) => (

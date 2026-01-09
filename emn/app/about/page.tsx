@@ -3,11 +3,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Award, Users, CheckCircle } from 'lucide-react';
-import HeroSection from '@/components/sections/HeroSection';
-import CTASection from '@/components/sections/CTASection';
-import { Card, CardContent } from '@/components/ui/Card';
-import { COMPANY_INFO, CORE_VALUES } from '@/lib/constants';
-import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from '@/lib/animations';
+import HeroSection from '@/src/components/sections/HeroSection';
+import CTASection from '@/src/components/sections/CTASection';
+import { Card, CardContent } from '@/src/components/ui/Card';
+import { COMPANY_INFO, CORE_VALUES } from '@/src/lib/constants';
+import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from '@/src/lib/animations';
 
 export default function AboutPage() {
   const team = [
@@ -65,13 +65,17 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold text-blue-900 mb-6">Our Story</h2>
             <div className="prose prose-lg text-gray-700 space-y-4">
               <p>
-                {COMPANY_INFO.name} was founded in {COMPANY_INFO.founded} with a vision to provide world-class marine engineering and fabrication services to the maritime industry. With over {new Date().getFullYear() - COMPANY_INFO.founded} years of experience, we've grown from a small welding workshop to a comprehensive marine services provider serving clients across West Africa and beyond.
+                {COMPANY_INFO.name} was founded in {COMPANY_INFO.founded} with a vision to provide world-class engineering and fabrication services to the maritime, oil & gas, food & beverages and chemical industries.  Including offshore fabrication and maritime support. With over {new Date().getFullYear() - COMPANY_INFO.founded} years of experience, we've grown from working with Niger Dock Plc Fze as a fabricating firm sub-contractor to a comprehensive engineering, marine construction and installation buinsess that has global competitive edge serving clients across West Africa and beyond.
               </p>
               <p>
-                Our journey began serving local shipyards and has expanded to supporting major offshore oil & gas operations, international shipping companies, and port authorities. We've built our reputation on delivering quality workmanship, maintaining the highest safety standards, and providing responsive service when our clients need us most.
+                Our journey began serving local shipyards and has expanded to supporting major offshore oil & gas operations, international shipping companies, and chemical industries. We've built our reputation on delivering quality workmanship, maintaining the highest safety standards, and providing responsive service when our clients need us most.
               </p>
               <p>
-                Today, we're proud to be the trusted partner for vessel maintenance, marine construction, and specialized maritime services throughout the industry. Our team of certified professionals brings decades of combined experience and a commitment to excellence that sets us apart.
+                 Today, we're proud to be the trusted partner for vessel maintenance, marine construction, and specialized maritime services across Nigeria and beyond. Starting operations in 2014 as a fabricating firm at Niger Dock Plc Fze, we have evolved into a full-service engineering, marine construction, and installation business with a global competitive edge.
+              </p>
+              <p>
+
+As a trusted sub-contractor with Niger Dock Plc Fze and major contractor with Reliance Chemical Products Ltd and Insignal, we have demonstrated our commitment to excellence through systemic and disciplined management of operations. We hold ourselves to the highest ethical standards and behave in ways that earn the trust of our clients across the oil and gas, chemical, and maritime sectors.
               </p>
             </div>
           </motion.div>
@@ -92,7 +96,7 @@ export default function AboutPage() {
                 <CardContent className="pt-8">
                   <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
                   <p className="text-lg text-gray-200">
-                    To deliver exceptional marine engineering solutions that ensure the safety, efficiency, and reliability of maritime operations while maintaining the highest standards of quality and environmental responsibility.
+                   To be recognized by our customers as providing the world's best fabrication and marine service while valuing our people, providing an injury-free workplace, respecting the environment and adhering to the highest standards of integrity and financial discipline.
                   </p>
                 </CardContent>
               </Card>
@@ -108,7 +112,7 @@ export default function AboutPage() {
                 <CardContent className="pt-8">
                   <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
                   <p className="text-lg">
-                    To be the premier marine engineering company in West Africa, recognized globally for innovation, excellence, and unwavering commitment to safety in the maritime industry.
+                    To be a company of motivated people dedicated to achieving operational excellence in an accident-free environment and to be our client's best partner in providing the most suitable industrial solutions by diligently retaining and improving on our capabilities to deliver customized and efficient solutions to solve our clients' challenges
                   </p>
                 </CardContent>
               </Card>

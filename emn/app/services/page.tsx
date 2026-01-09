@@ -16,12 +16,12 @@ import {
   HardHat,
   CheckCircle,
 } from 'lucide-react';
-import HeroSection from '@/components/sections/HeroSection';
-import CTASection from '@/components/sections/CTASection';
-import { Card, CardContent } from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
-import { services } from '@/data/services';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
+import HeroSection from '@/src/components/sections/HeroSection';
+import CTASection from '@/src/components/sections/CTASection';
+import { Card, CardContent } from '@/src/components/ui/Card';
+import Button from '@/src/components/ui/Button';
+import { services } from '@/src/data/services';
+import { fadeInUp, staggerContainer } from '@/src/lib/animations';
 
 const iconMap: any = {
   Wrench,

@@ -1,12 +1,12 @@
 export const COMPANY_INFO = {
-  name: 'MarineTech Engineering',
-  tagline: 'Marine Engineering Excellence',
-  email: 'info@marinetecheng.com',
-  phone: '+234 123 456 7890',
-  emergency: '+234 123 456 7891',
-  address: '123 Marina Road, Lagos, Nigeria',
+  name: 'EMN MECHANNICAL FABRICATION SERVICES LTD',
+  tagline: 'Safety & Quality',
+  email: 'kunlemustapha27@yahoo.com',
+  phone: '+234 803 697 5415',
+  emergency: '+234 704 319 6807',
+  address: 'Km 46, Black Signboard Badagry Exp, Lagos, Nigeria',
   hours: 'Mon-Fri: 8:00 AM - 6:00 PM, 24/7 Emergency Support',
-  founded: 2009,
+  founded: 2014,
 };
 
 export const SOCIAL_LINKS = {
@@ -18,8 +18,8 @@ export const SOCIAL_LINKS = {
 };
 
 export const STATS = [
-  { value: '15+', label: 'Years Experience' },
-  { value: '500+', label: 'Projects Completed' },
+  { value: '12+', label: 'Years Experience' },
+  { value: '100+', label: 'Projects Completed' },
   { value: '50+', label: 'Team Members' },
   { value: '24/7', label: 'Emergency Support' },
 ];

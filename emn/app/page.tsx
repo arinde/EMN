@@ -4,13 +4,13 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Award, Clock, Shield, Star, Quote } from 'lucide-react';
-import HeroSection from '@/components/sections/HeroSection';
-import StatsSection from '@/components/sections/StatsSection';
-import ServicesGrid from '@/components/sections/ServicesGrid';
-import CTASection from '@/components/sections/CTASection';
-import { Card, CardContent } from '@/components/ui/Card';
-import { testimonials } from '../data/testimonials';
-import { fadeInUp, staggerContainer } from '../lib/animations';
+import HeroSection from '@/src/components/sections/HeroSection';
+import StatsSection from '@/src/components/sections/StatsSection';
+import ServicesGrid from '@/src/components/sections/ServicesGrid';
+import CTASection from '@/src/components/sections/CTASection';
+import { Card, CardContent } from '@/src/components/ui/Card';
+import { testimonials } from '../src/data/testimonials';
+import { fadeInUp, staggerContainer } from '../src/lib/animations';
 
 export default function HomePage() {
   const whyChooseUs = [
@@ -36,17 +36,29 @@ export default function HomePage() {
     },
   ];
 
+  // Hero background carousel images
+  const heroImages = [
+    '/hero/fabrication.jpg',
+    '/hero/welding-1.png',
+    '/hero/shpMain.jpg',
+    '/hero/chemical.jpg',
+    '/hero/offshore.jpg',
+    
+  ];
+
   return (
     <div className="pt-20">
-      {/* Hero Section */}
+      {/* Hero Section with Background Carousel */}
       <HeroSection
-        title="Marine Engineering"
-        subtitle="Excellence"
-        description="Precision fabrication, expert marine services, and 24/7 emergency support for the maritime industry"
+        title="EMN MECHANICAL FABRICATION SERVICES LTD"
+        subtitle="Safety & Quality"
+        description="Excellence in Marine Fabrication & Construction. Delivering world-class engineering solutions for oil & gas, chemical, and maritime industries with proven operational excellence since 2014."
         primaryCTA={{ text: 'Get a Quote', href: '/quote' }}
         secondaryCTA={{ text: 'Our Services', href: '/services' }}
         showScrollIndicator
         fullHeight
+        backgroundImages={heroImages}
+        autoPlayInterval={5000}
       />
 
       {/* Stats Section */}

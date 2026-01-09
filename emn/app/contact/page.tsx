@@ -11,13 +11,13 @@ import {
   AlertCircle,
   CheckCircle,
 } from 'lucide-react';
-import HeroSection from '@/components/sections/HeroSection';
-import { Card, CardContent } from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
-import { COMPANY_INFO } from '@/lib/constants';
-import { validateEmail, validatePhone } from '@/lib/utils';
-import { fadeInUp, slideInLeft, slideInRight } from '@/lib/animations';
-import { services } from '@/data/services';
+import HeroSection from '@/src/components/sections/HeroSection';
+import { Card, CardContent } from '@/src/components/ui/Card';
+import Button from '@/src/components/ui/Button';
+import { COMPANY_INFO } from '@/src/lib/constants';
+import { validateEmail, validatePhone } from '@/src/lib/utils';
+import { fadeInUp, slideInLeft, slideInRight } from '@/src/lib/animations';
+import { services } from '@/src/data/services';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

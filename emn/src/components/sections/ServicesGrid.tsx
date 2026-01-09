@@ -16,7 +16,7 @@ import {
   HardHat,
   ChevronRight,
 } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/src/components/ui/Card';
 import { fadeInUp, staggerContainer } from '../../lib/animations';
 
 const iconMap: { [key: string]: any } = {

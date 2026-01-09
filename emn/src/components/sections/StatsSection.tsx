@@ -15,8 +15,8 @@ interface StatsSectionProps {
 }
 
 const defaultStats: Stat[] = [
-  { value: '15+', label: 'Years Experience' },
-  { value: '500+', label: 'Projects Completed' },
+  { value: '12+', label: 'Years Experience' },
+  { value: '100+', label: 'Projects Completed' },
   { value: '50+', label: 'Team Members' },
   { value: '24/7', label: 'Emergency Support' },
 ];

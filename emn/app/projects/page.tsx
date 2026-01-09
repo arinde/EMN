@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Building, Ship, Settings, Hammer, Calculator, ChevronRight } from 'lucide-react';
-import HeroSection from '@/components/sections/HeroSection';
-import CTASection from '@/components/sections/CTASection';
-import { Card, CardContent } from '@/components/ui/Card';
-import { projects } from '@/data/projects';
-import { fadeInUp } from '@/lib/animations';
+import HeroSection from '@/src/components/sections/HeroSection';
+import CTASection from '@/src/components/sections/CTASection';
+import { Card, CardContent } from '@/src/components/ui/Card';
+import { projects } from '@/src/data/projects';
+import { fadeInUp } from '@/src/lib/animations';
 
 const iconMap: any = {
   'Oil & Gas': Building,

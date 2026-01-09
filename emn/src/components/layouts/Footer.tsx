@@ -17,7 +17,7 @@ import {
   ArrowUp,
 } from 'lucide-react';
 import { COMPANY_INFO, SOCIAL_LINKS, NAV_ITEMS } from '../../lib/constants';
-import Button from '@/components/ui/Button';
+import Button from '@/src/components/ui/Button';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
