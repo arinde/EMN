@@ -173,7 +173,7 @@ export default function CapabilitiesPage() {
                           key={idx}
                           className="flex items-start gap-2 text-gray-600"
                         >
-                          <CheckCircle className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
                           <span className="text-sm">{item}</span>
                         </li>
                       ))}
@@ -252,7 +252,7 @@ export default function CapabilitiesPage() {
                   'Third-party verification when required',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-6 w-6 text-orange-500 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -263,7 +263,7 @@ export default function CapabilitiesPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl p-8 text-white"
+              className="bg-linear-to-br from-blue-900 to-blue-700 rounded-2xl p-8 text-white"
             >
               <h3 className="text-2xl font-bold mb-6">Capacity Highlights</h3>
               <div className="space-y-6">

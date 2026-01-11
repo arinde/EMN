@@ -1,15 +1,29 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import Header from '../src/components/layouts/Header';
 import Footer from '../src/components/layouts/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = localFont({
+  src: [
+    {
+      path: '../public/fonts/Inter/Inter-VariableFont_opsz,wght.ttf',
+      weight: '100 900',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf',
+      weight: '100 900',
+      style: 'italic',
+    },
+  ],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'EMN MECHANICAL FABRICATION SERIVES LTD - Safety & Quality',
-  description: 'Leading provider of marine engineering, fabrication, and maritime services. Expert welding, ship hull maintenance, valve services, and marine construction.',
-  keywords: 'marine engineering, ship repair, welding, fabrication, hull maintenance, valve services, marine construction, offshore services',
+  title: 'EMN MECHANICAL FABRICATION SERVICES LTD - Safety & Quality',
+  description:
+    'Leading provider of marine engineering, fabrication, and maritime services.',
 };
 
 export default function RootLayout({
@@ -21,9 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
