@@ -6,7 +6,7 @@ export const COMPANY_INFO = {
   emergency: '+234 704 319 6807',
   address: 'Km 46, Black Signboard Badagry Exp, Lagos, Nigeria',
   address2: 'No 14, Ago Yusuf Road, Shekolo Behinde Oko-Afo Bust-stop, Badagry Lagos, Nigeria',
-  hours: 'Mon-Fri: 8:00 AM - 6:00 PM, 24/7 Emergency Support',
+  hours: 'Mon-Sat: 8:00 AM - 6:00 PM, 24/7 Emergency Support',
   founded: 2014,
 };
 

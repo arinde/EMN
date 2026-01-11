@@ -12,7 +12,7 @@ import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from '@/src/lib
 export default function AboutPage() {
   const team = [
     {
-      name: 'Captain James Wilson',
+      name: 'Engr Kunle Mustapha',
       role: 'Chief Executive Officer',
       bio: '25+ years in marine operations and engineering leadership',
     },
@@ -49,8 +49,8 @@ export default function AboutPage() {
       {/* Hero */}
       <HeroSection
         title="About Us"
-        subtitle="Leading Marine Engineering Solutions Since 2009"
-        description="Delivering excellence in marine engineering and fabrication services"
+        subtitle="Leading Marine Engineering Solutions Since 2014"
+        description="Delivering excellence in marine & industrial engineering and fabrication services"
       />
 
       {/* Company Story */}

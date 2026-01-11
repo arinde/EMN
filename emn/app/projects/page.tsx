@@ -164,7 +164,7 @@ export default function ProjectsPage() {
               { value: '98%', label: 'On-Time Completion' },
               { value: '100%', label: 'Safety Compliance' },
               { value: '95%', label: 'Client Satisfaction' },
-              { value: '500+', label: 'Projects Delivered' },
+              { value: '50+', label: 'Projects Delivered' },
             ].map((stat, i) => (
               <motion.div
                 key={i}

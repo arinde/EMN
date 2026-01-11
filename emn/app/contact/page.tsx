@@ -115,8 +115,14 @@ export default function ContactPage() {
     },
     {
       icon: MapPin,
-      title: 'Address',
+      title: 'Head Office',
       content: COMPANY_INFO.address,
+      link: '#',
+    },
+    {
+      icon: MapPin,
+      title: 'Branch Address',
+      content: COMPANY_INFO.address2,
       link: '#',
     },
     {
@@ -167,7 +173,7 @@ export default function ContactPage() {
                         <info.icon
                           className={`h-6 w-6 ${
                             info.highlight ? 'text-orange-500' : 'text-blue-900'
-                          } flex-shrink-0`}
+                          } shrink-0`}
                         />
                         <div>
                           <p className="font-semibold text-blue-900 mb-1">
@@ -207,7 +213,7 @@ export default function ContactPage() {
 
                   {submitStatus === 'success' && (
                     <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
                       <div>
                         <p className="font-semibold text-green-900">
                           Message sent successfully!
@@ -419,7 +425,7 @@ export default function ContactPage() {
           </motion.div>
 
           <Card hover={false} className="overflow-hidden">
-            <div className="h-96 bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center">
+            <div className="h-96 bg-linear-to-br from-blue-200 to-blue-300 flex items-center justify-center">
               <MapPin className="h-24 w-24 text-blue-900 opacity-30" />
               <p className="text-blue-900 font-semibold ml-4">
                 Interactive Map Placeholder

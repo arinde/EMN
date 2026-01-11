@@ -89,8 +89,8 @@ export default function IndustriesPage() {
     },
     {
       icon: Package,
-      name: 'Maritime Logistics',
-      description: 'Supply chain and logistics solutions tailored for maritime operations and shipping companies.',
+      name: 'Maritime & industiral Logistics',
+      description: 'Supply chain and logistics solutions tailored for maritime operations, industrial operations and shipping companies.',
       challenges: [
         'Complex supply chains',
         'International regulations',
@@ -106,18 +106,18 @@ export default function IndustriesPage() {
     },
     {
       icon: Shield,
-      name: 'Naval & Defense',
-      description: 'Certified services for naval vessels with security clearance and defense-grade standards.',
+      name: 'Chemical Industry',
+      description: 'Certified services for Chemical production facilities and industrial processes.',
       challenges: [
-        'Security protocols',
-        'Military specifications',
-        'Classified operations',
+        'Corrosive materials',
+        'Modern Fabrication standards',
+        'Safety regulations',
         'Highest reliability',
       ],
       solutions: [
-        'Security-cleared personnel',
-        'Military-grade materials',
-        'Strict documentation',
+        'Best grade materials',
+        'Advanced fabrication techniques',
+        'Safety-first protocols',
         'Confidentiality assured',
       ],
     },
@@ -259,8 +259,8 @@ export default function IndustriesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: '8+', label: 'Industries Served' },
-              { value: '200+', label: 'Companies Partnered' },
-              { value: '35+', label: 'Countries Reached' },
+              { value: '10+', label: 'Companies Partnered' },
+              { value: '5+', label: 'Countries Reached' },
               { value: '99%', label: 'Client Retention' },
             ].map((stat, i) => (
               <motion.div

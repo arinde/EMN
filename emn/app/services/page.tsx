@@ -42,8 +42,8 @@ export default function ServicesPage() {
       {/* Hero */}
       <HeroSection
         title="Our Services"
-        subtitle="Comprehensive Marine Engineering Solutions"
-        description="Expert services for vessels, offshore platforms, and maritime operations"
+        subtitle="Comprehensive Marine & Industrial Engineering Solutions"
+        description="Expert services for vessels, chemical plant structures, gas piping, offshore platforms, and maritime operations"
       />
 
       {/* Services Grid */}

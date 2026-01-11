@@ -19,6 +19,7 @@ import {
 import { COMPANY_INFO, SOCIAL_LINKS, NAV_ITEMS } from '../../lib/constants';
 import Button from '@/src/components/ui/Button';
 import Image from 'next/image'
+import WhatsAppFAB from '../ui/WhatsappFAB';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -193,7 +194,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
+      <WhatsAppFAB />
       {/* Back to Top Button */}
       <motion.button
         onClick={scrollToTop}
