@@ -17,7 +17,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/src/components/ui/Card';
-import { fadeInUp, staggerContainer } from '../../lib/animations';
+import { fadeInUp, staggerContainer } from '@/src/lib/animations';
 
 const iconMap: { [key: string]: any } = {
   Wrench,
@@ -45,16 +45,56 @@ interface ServicesGridProps {
 }
 
 const defaultServices: Service[] = [
-  { icon: 'Wrench', name: 'Welding & Fabrication', description: 'Expert structural and pipe welding services' },
-  { icon: 'Ship', name: 'Ship Hull Maintenance', description: 'Comprehensive hull inspection and repair' },
-  { icon: 'Settings', name: 'Marine Valve Services', description: 'Installation, testing, and certification' },
-  { icon: 'Package', name: 'Marine Logistics', description: 'Supply chain and project management' },
-  { icon: 'Users', name: 'Certified Labour Supply', description: 'Skilled marine technicians and welders' },
-  { icon: 'Droplet', name: 'Sand Blasting & Painting', description: 'Surface preparation and coatings' },
-  { icon: 'Hammer', name: 'Equipment Rentals', description: 'Specialized marine tools and equipment' },
-  { icon: 'Calculator', name: 'Gas Freeing & Calibration', description: 'Tank cleaning and volume certification' },
-  { icon: 'Building', name: 'Sulphonation Plant', description: 'Chemical processing services' },
-  { icon: 'HardHat', name: 'Marine Construction', description: 'Design and engineering solutions' },
+  { 
+    icon: 'Wrench', 
+    name: 'Welding and Fabrication', 
+    description: 'Expert structural welding, pipe welding, and custom metal fabrication for marine and industrial applications' 
+  },
+  { 
+    icon: 'Ship', 
+    name: 'Ship Hull Maintenance', 
+    description: 'Comprehensive hull inspection, repair, and preventive maintenance ensuring vessel integrity and safety' 
+  },
+  { 
+    icon: 'Settings', 
+    name: 'Marine Valve Servicing and Installation', 
+    description: 'Professional valve testing, repair, installation, and certification for all marine valve systems' 
+  },
+  { 
+    icon: 'Package', 
+    name: 'Marine Logistics and Consulting Services', 
+    description: 'Supply chain management, project management, and technical consulting for marine operations' 
+  },
+  { 
+    icon: 'Users', 
+    name: 'Certified Labour Supply', 
+    description: 'Skilled welders, fitters, marine technicians, and certified personnel for your marine projects' 
+  },
+  { 
+    icon: 'Droplet', 
+    name: 'Sand Blasting and Painting', 
+    description: 'Professional surface preparation, protective coatings, and anti-corrosion treatments for marine structures' 
+  },
+  { 
+    icon: 'Hammer', 
+    name: 'Equipment Rentals', 
+    description: 'Specialized marine tools, welding equipment, and lifting gear available for rent with operator support' 
+  },
+  { 
+    icon: 'Calculator', 
+    name: 'Gas Freeing and Tank Calibration', 
+    description: 'Tank cleaning, gas detection, volume calibration, and certification services with safety compliance' 
+  },
+  { 
+    icon: 'Building', 
+    name: 'Sulphonation Plant', 
+    description: 'Specialized sulphonation services and chemical processing for industrial applications' 
+  },
+  { 
+    icon: 'HardHat', 
+    name: 'Marine Construction and Design', 
+    description: 'Complete structural design, marine installations, and engineering solutions from concept to completion' 
+  },
 ];
 
 export default function ServicesGrid({ services = defaultServices, columns = 3 }: ServicesGridProps) {
@@ -76,7 +116,7 @@ export default function ServicesGrid({ services = defaultServices, columns = 3 }
         >
           <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive marine engineering solutions for vessels, offshore platforms, and maritime operations
+            Comprehensive marine and industrial engineering solutions. Exceeding client expectations through quality services at the right time and competitive pricing
           </p>
         </motion.div>
 

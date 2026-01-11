@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO, SOCIAL_LINKS, NAV_ITEMS } from '../../lib/constants';
 import Button from '@/src/components/ui/Button';
+import Image from 'next/image'
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -41,12 +42,24 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <Ship className="h-8 w-8 text-orange-500" />
-              <span className="text-xl font-bold">{COMPANY_INFO.name}</span>
-            </div>
+            <Link href="/" className="flex items-center group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                className="relative h-16 w-auto bg-white pb-16 rounded-lg mb-3"
+              >
+                <Image
+                  src="/images/emn.png"
+                  alt="EMN Mechanical Fabrication Services Ltd"
+                  width={200}
+                  height={64}
+                  className="h-16 w-auto object-contain"
+                  priority
+                />
+              </motion.div>
+            </Link>
             <p className="text-gray-400 mb-6">
-              Leading provider of marine engineering and fabrication services with over {currentYear - COMPANY_INFO.founded} years of excellence in the maritime industry.
+              Leading provider of marine and industrial engineering and fabrication services with over {currentYear - COMPANY_INFO.founded} years of excellence in the maritime and engineering industry.
             </p>
             <div className="space-y-3">
               <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-2 text-gray-400 hover:text-orange-500 transition-colors">
@@ -60,6 +73,10 @@ export default function Footer() {
               <div className="flex items-start gap-2 text-gray-400">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
                 <span>{COMPANY_INFO.address}</span>
+              </div>
+              <div className="flex items-start gap-2 text-gray-400">
+                <MapPin className="h-5 w-5 mt-1 shrink-0" />
+                <span>{COMPANY_INFO.address2}</span>
               </div>
             </div>
           </div>

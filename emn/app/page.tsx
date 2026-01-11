@@ -3,12 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Award, Clock, Shield, Star, Quote } from 'lucide-react';
+import { Award, Clock, Shield, Star, Quote, ChevronRight } from 'lucide-react';
 import HeroSection from '@/src/components/sections/HeroSection';
 import StatsSection from '@/src/components/sections/StatsSection';
 import ServicesGrid from '@/src/components/sections/ServicesGrid';
 import CTASection from '@/src/components/sections/CTASection';
 import { Card, CardContent } from '@/src/components/ui/Card';
+import Button from '@/src/components/ui/Button';
 import { testimonials } from '../src/data/testimonials';
 import { fadeInUp, staggerContainer } from '../src/lib/animations';
 
@@ -43,7 +44,6 @@ export default function HomePage() {
     '/hero/shpMain.jpg',
     '/hero/chemical.jpg',
     '/hero/offshore.jpg',
-    
   ];
 
   return (
@@ -67,6 +67,117 @@ export default function HomePage() {
       {/* Services Grid */}
       <ServicesGrid />
 
+      {/* Featured Projects Gallery */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Showcasing our excellence in marine fabrication and engineering across diverse projects
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                title: 'Offshore Platform Maintenance',
+                category: 'Oil & Gas',
+                image: '/images/projects/offshore-platform.jpg',
+                description: 'Complete maintenance and structural reinforcement of offshore platform',
+              },
+              {
+                title: 'Chemical Tanker Retrofit',
+                category: 'Marine Services',
+                image: '/images/projects/chemical-tanker.jpg',
+                description: 'Full vessel upgrade including valve systems and tank modifications',
+              },
+              {
+                title: 'Ship Hull Repair',
+                category: 'Shipbuilding',
+                image: '/images/projects/hull-repair.jpg',
+                description: 'Emergency hull repair and restoration for cargo vessel',
+              },
+              {
+                title: 'Port Equipment Fabrication',
+                category: 'Port Operations',
+                image: '/images/projects/port-equipment.jpg',
+                description: 'Custom loading equipment for port authority expansion',
+              },
+              {
+                title: 'Tank Calibration Project',
+                category: 'Industrial',
+                image: '/images/projects/tank-calibration.jpg',
+                description: 'Complete gas freeing and calibration for storage terminal',
+              },
+              {
+                title: 'Naval Vessel Maintenance',
+                category: 'Naval',
+                image: '/images/projects/naval-vessel.jpg',
+                description: 'Comprehensive maintenance and protective coating application',
+              },
+            ].map((project, i) => (
+              <motion.div key={i} variants={fadeInUp}>
+                <Link href="/projects">
+                  <Card className="h-full overflow-hidden group">
+                    {/* Project Image */}
+                    <div className="relative h-64 bg-linear-to-br from-blue-900 to-blue-700 overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-white/30 text-6xl font-bold">
+                          {i + 1}
+                        </div>
+                      </div>
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-orange-500/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="text-white font-bold text-lg">
+                          View Project Details →
+                        </span>
+                      </div>
+                    </div>
+
+                    <CardContent className="pt-6">
+                      <span className="inline-block px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-semibold mb-3">
+                        {project.category}
+                      </span>
+                      <h3 className="text-xl font-bold text-blue-900 mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex items-center text-orange-500 font-semibold text-sm">
+                        View Details <ChevronRight className="h-4 w-4 ml-1" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="text-center mt-12">
+            <Link href="/projects">
+              <Button variant="outline" size="lg" className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
+                View All Projects
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +192,7 @@ export default function HomePage() {
               Why Choose Us
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Trusted by leading maritime companies for excellence in marine engineering
+              Trusted by leading maritime and chemical companies for excellence in engineering
             </p>
           </motion.div>
 
@@ -123,7 +234,7 @@ export default function HomePage() {
               Client Testimonials
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              What our clients say about our marine engineering services
+              What our clients say about our engineering services
             </p>
           </motion.div>
 
@@ -172,6 +283,8 @@ export default function HomePage() {
       <CTASection
         title="Ready to Start Your Project?"
         description="Get in touch with our marine engineering experts for a consultation"
+        backgroundImage="/hero/shpMain.jpg"
+        overlayOpacity={75}
       />
     </div>
   );

@@ -7,7 +7,7 @@ import Footer from '../src/components/layouts/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'MarineTech Engineering - Marine Engineering Excellence',
+  title: 'EMN MECHANICAL FABRICATION SERIVES LTD - Safety & Quality',
   description: 'Leading provider of marine engineering, fabrication, and maritime services. Expert welding, ship hull maintenance, valve services, and marine construction.',
   keywords: 'marine engineering, ship repair, welding, fabrication, hull maintenance, valve services, marine construction, offshore services',
 };

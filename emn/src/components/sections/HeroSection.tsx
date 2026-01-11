@@ -55,7 +55,7 @@ export default function HeroSection({
   return (
     <section
       className={`relative flex items-center justify-center overflow-hidden ${
-        fullHeight ? 'h-screen' : 'h-96 md:h-[500px]'
+        fullHeight ? 'h-screen' : 'h-96 md:h-125'
       }`}
     >
       {/* Background Image Carousel */}
@@ -81,12 +81,12 @@ export default function HeroSection({
             </motion.div>
           </AnimatePresence>
           {/* Dark Overlay with Blue Tint */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-blue-800/55 to-blue-900/60" />
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900/60 via-blue-800/55 to-blue-900/60" />
         </div>
       ) : (
         // Fallback gradient background if no images
         <>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900" />
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-blue-900" />
           <div className="absolute inset-0 bg-black opacity-40" />
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6TTI0IDM2YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiIHN0cm9rZT0iIzFmMmQzZCIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIuMSIvPjwvZz48L3N2Zz4=')] opacity-10" />
@@ -130,10 +130,10 @@ export default function HeroSection({
             </motion.div>
           )}
           
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
             {title}
             {subtitle && (
-              <span className="block text-orange-500 mt-2">{subtitle}</span>
+              <span className="block text-orange-500 mt-2 text-xl md:text-2xl lg:text-3xl">{subtitle}</span>
             )}
           </h1>
           
