@@ -2,7 +2,7 @@ export const COMPANY_INFO = {
   name: 'EMN MECHANNICAL FABRICATION SERVICES LTD',
   tagline: 'Safety & Quality',
   email: 'kunlemustapha27@yahoo.com',
-  phone: '+234 803 697 5415',
+  phone: '+234 808 965 6353',
   emergency: '+234 704 319 6807',
   address: 'Km 46, Black Signboard Badagry Exp, Lagos, Nigeria',
   address2: 'No 14, Ago Yusuf Road, Shekolo Behinde Oko-Afo Bust-stop, Badagry Lagos, Nigeria',
