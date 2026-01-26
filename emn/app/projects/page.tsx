@@ -78,17 +78,34 @@ export default function ProjectsPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <Card className="h-full overflow-hidden">
-                      {/* Project Image Placeholder */}
-                      <div className="h-48 bg-linear-to-br from-blue-900 to-blue-700 flex items-center justify-center">
-                        <Icon className="h-24 w-24 text-white opacity-50" />
+                    <Card className="h-full overflow-hidden group">
+                      {/* Project Image */}
+                      <div className="relative h-48 overflow-hidden bg-gray-200">
+                        {project.images && project.images.length > 0 ? (
+                          <>
+                            <img
+                              src={project.images[0]}
+                              alt={project.name}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-linear-to-t from-blue-900/60 to-transparent" />
+                          </>
+                        ) : (
+                          <div className="w-full h-full bg-linear-to-br from-blue-900 to-blue-700 flex items-center justify-center">
+                            <Icon className="h-24 w-24 text-white opacity-50" />
+                          </div>
+                        )}
+                        
+                        {/* Category Badge Overlay */}
+                        <div className="absolute top-4 left-4 z-10">
+                          <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-orange-600 rounded-full text-xs font-semibold">
+                            {project.category}
+                          </span>
+                        </div>
                       </div>
                       
                       <CardContent className="pt-6">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-semibold">
-                            {project.category}
-                          </span>
                           <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold">
                             {project.industry}
                           </span>

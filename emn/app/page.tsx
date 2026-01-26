@@ -96,7 +96,7 @@ export default function HomePage() {
               {
                 title: 'Offshore Platform Maintenance',
                 category: 'Oil & Gas',
-                image: '/project/fabrication2.jpeg',
+                image: '/project/project6.jpeg',
                 description: 'Complete maintenance and structural reinforcement of offshore platform',
               },
               {
@@ -134,13 +134,15 @@ export default function HomePage() {
                 <Link href="/projects">
                   <Card className="h-full overflow-hidden group">
                     {/* Project Image */}
-                    <div className="relative h-64 bg-linear-to-br from-blue-900 to-blue-700 overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-white/30 text-6xl font-bold">
-                          {i + 1}
-                        </div>
-                      </div>
-                      {/* Overlay on hover */}
+                    <div className="relative h-64 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      {/* Hover overlay */}
                       <div className="absolute inset-0 bg-orange-500/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <span className="text-white font-bold text-lg">
                           View Project Details →

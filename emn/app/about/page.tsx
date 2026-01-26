@@ -10,6 +10,15 @@ import { COMPANY_INFO, CORE_VALUES } from '@/src/lib/constants';
 import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from '@/src/lib/animations';
 
 export default function AboutPage() {
+  // Hero background images for About page
+  const aboutHeroImages = [
+    '/project/worker.jpeg',
+    '/project/project2.jpeg',
+    '/project/RCPL.jpeg',
+    '/project/worker7.jpeg',
+    '/project/fabircation2.jpeg',
+  ];
+
   const team = [
     {
       name: 'Engr Kunle Mustapha',
@@ -46,11 +55,13 @@ export default function AboutPage() {
 
   return (
     <div className="pt-20">
-      {/* Hero */}
+      {/* Hero with Background Images */}
       <HeroSection
         title="About Us"
         subtitle="Leading Marine Engineering Solutions Since 2014"
         description="Delivering excellence in marine & industrial engineering and fabrication services"
+        backgroundImages={aboutHeroImages}
+        autoPlayInterval={5000}
       />
 
       {/* Company Story */}
@@ -74,8 +85,7 @@ export default function AboutPage() {
                  Today, we're proud to be the trusted partner for vessel maintenance, marine construction, and specialized maritime services across Nigeria and beyond. Starting operations in 2014 as a fabricating firm at Niger Dock Plc Fze, we have evolved into a full-service engineering, marine construction, and installation business with a global competitive edge.
               </p>
               <p>
-
-As a trusted sub-contractor with Niger Dock Plc Fze and major contractor with Reliance Chemical Products Ltd and Insignal, we have demonstrated our commitment to excellence through systemic and disciplined management of operations. We hold ourselves to the highest ethical standards and behave in ways that earn the trust of our clients across the oil and gas, chemical, and maritime sectors.
+                As a trusted sub-contractor with Niger Dock Plc Fze and major contractor with Reliance Chemical Products Ltd and Insignal, we have demonstrated our commitment to excellence through systemic and disciplined management of operations. We hold ourselves to the highest ethical standards and behave in ways that earn the trust of our clients across the oil and gas, chemical, and maritime sectors.
               </p>
             </div>
           </motion.div>
@@ -193,7 +203,7 @@ As a trusted sub-contractor with Niger Dock Plc Fze and major contractor with Re
               <motion.div key={i} variants={fadeInUp}>
                 <Card hover className="text-center h-full">
                   <CardContent className="pt-6">
-                    <div className="w-24 h-24 bg-linear-to-br from-blue-900 to-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-blue-900 to-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center">
                       <Users className="h-12 w-12 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-blue-900 mb-1">
@@ -256,6 +266,8 @@ As a trusted sub-contractor with Niger Dock Plc Fze and major contractor with Re
         description="Explore career opportunities in marine engineering excellence"
         primaryCTA={{ text: 'View Careers', href: '/contact' }}
         secondaryCTA={{ text: 'Contact Us', href: '/contact' }}
+        backgroundImage="/project/worker.jpeg"  
+        overlayOpacity={75} 
       />
     </div>
   );

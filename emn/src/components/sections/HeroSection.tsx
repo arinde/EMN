@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronRight, ChevronDown, Anchor } from 'lucide-react';
 import Button from '@/src/components/ui/Button';
@@ -41,7 +40,7 @@ export default function HeroSection({
   const hasImages = backgroundImages.length > 0;
 
   useEffect(() => {
-    if (!hasImages) return;
+    if (!hasImages || backgroundImages.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
@@ -60,33 +59,31 @@ export default function HeroSection({
     >
       {/* Background Image Carousel */}
       {hasImages ? (
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 w-full h-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentImageIndex}
-              initial={{ opacity: 1, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              className="absolute inset-0 w-full h-full"
             >
-              <Image
+              <img
                 src={backgroundImages[currentImageIndex]}
-                alt="EMN Fabrication Work"
-                fill
-                className="object-cover transition-opacity duration-1000"
-                priority={currentImageIndex === 0}
-                quality={90}
+                alt={`EMN Fabrication Work ${currentImageIndex + 1}`}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center' }}
               />
             </motion.div>
           </AnimatePresence>
           {/* Dark Overlay with Blue Tint */}
-          <div className="absolute inset-0 bg-linear-to-br from-blue-900/60 via-blue-800/55 to-blue-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/65 to-blue-900/70" />
         </div>
       ) : (
         // Fallback gradient background if no images
         <>
-          <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-blue-800 to-blue-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900" />
           <div className="absolute inset-0 bg-black opacity-40" />
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6TTI0IDM2YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiIHN0cm9rZT0iIzFmMmQzZCIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIuMSIvPjwvZz48L3N2Zz4=')] opacity-10" />

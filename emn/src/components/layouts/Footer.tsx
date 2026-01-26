@@ -21,6 +21,7 @@ import Button from '@/src/components/ui/Button';
 import Image from 'next/image'
 import WhatsAppFAB from '../ui/WhatsappFAB';
 
+
 export default function Footer() {
   const [email, setEmail] = useState('');
 

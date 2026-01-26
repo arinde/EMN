@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/src/components/ui/Button';
 import { fadeInUp } from '../../lib/animations';
@@ -19,8 +18,8 @@ interface CTASectionProps {
     href: string;
   };
   bgGradient?: string;
-  backgroundImage?: string; // New prop for background image
-  overlayOpacity?: number; // Control overlay darkness (0-100)
+  backgroundImage?: string;
+  overlayOpacity?: number;
 }
 
 export default function CTASection({
@@ -30,7 +29,7 @@ export default function CTASection({
   secondaryCTA = { text: 'Request Quote', href: '/quote' },
   bgGradient = 'from-gray-500 to-gray-600',
   backgroundImage,
-  overlayOpacity = 70, // Default 70% opacity
+  overlayOpacity = 70,
 }: CTASectionProps) {
   return (
     <section className="relative py-20 overflow-hidden">
@@ -39,23 +38,21 @@ export default function CTASection({
         <>
           {/* Background Image */}
           <div className="absolute inset-0">
-            <Image
+            <img
               src={backgroundImage}
               alt="CTA Background"
-              fill
-              className="object-cover"
-              quality={90}
+              className="w-full h-full object-cover"
             />
           </div>
           {/* Overlay */}
           <div 
-            className="absolute inset-0 bg-linear-to-r from-orange-600 to-orange-700"
+            className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700"
             style={{ opacity: overlayOpacity / 100 }}
           />
         </>
       ) : (
         // Fallback gradient if no image
-        <div className={`absolute inset-0 bg-linear-to-r ${bgGradient}`} />
+        <div className={`absolute inset-0 bg-gradient-to-r ${bgGradient}`} />
       )}
 
       {/* Content */}

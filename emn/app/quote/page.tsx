@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Phone,
@@ -31,6 +31,25 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Load saved draft from localStorage on mount
+  useEffect(() => {
+    const savedDraft = localStorage.getItem('contact_form_draft');
+    if (savedDraft) {
+      try {
+        setFormData(JSON.parse(savedDraft));
+      } catch (e) {
+        console.error('Error loading draft:', e);
+      }
+    }
+  }, []);
+
+  // Save draft to localStorage whenever form data changes
+  useEffect(() => {
+    if (formData.name || formData.email || formData.phone || formData.message) {
+      localStorage.setItem('contact_form_draft', JSON.stringify(formData));
+    }
+  }, [formData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -75,10 +94,80 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Method 1: Using mailto (opens email client)
+      /*
+      const subject = `Contact Form: ${formData.service || 'General Inquiry'}`;
+      const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company || 'N/A'}
+Service: ${formData.service || 'N/A'}
+
+Message:
+${formData.message}
+      `.trim();
+
+      const mailtoLink = `mailto:${COMPANY_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+*/
+      // Alternative Method 2: Using FormSubmit.co (uncomment to use)
+      
+      const response = await fetch('https://formsubmit.co/ajax/kunlemustapha27@yahoo.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+          _subject: `New Contact Form Submission from ${formData.name}`,
+          _template: 'table',
+        })
+      });
+
+      if (!response.ok) throw new Error('Failed to send');
+      
+
+      // Alternative Method 3: Using Web3Forms (uncomment to use)
+      /*
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+          subject: `New Contact from ${formData.name}`,
+        })
+      });
+
+      const result = await response.json();
+      if (!result.success) throw new Error('Failed to send');
+      */
+
       setIsSubmitting(false);
       setSubmitStatus('success');
+      
+      // Clear localStorage draft
+      localStorage.removeItem('contact_form_draft');
+      
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -90,7 +179,26 @@ export default function ContactPage() {
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
+  };
+
+  const clearDraft = () => {
+    if (confirm('Are you sure you want to clear the saved draft?')) {
+      localStorage.removeItem('contact_form_draft');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        message: '',
+      });
+    }
   };
 
   const contactInfo = [
@@ -115,8 +223,14 @@ export default function ContactPage() {
     },
     {
       icon: MapPin,
-      title: 'Address',
+      title: 'Head Office',
       content: COMPANY_INFO.address,
+      link: '#',
+    },
+    {
+      icon: MapPin,
+      title: 'Branch Address',
+      content: COMPANY_INFO.address2,
       link: '#',
     },
     {
@@ -126,6 +240,8 @@ export default function ContactPage() {
       link: '#',
     },
   ];
+
+  const hasDraft = formData.name || formData.email || formData.phone || formData.message;
 
   return (
     <div className="pt-20">
@@ -167,7 +283,7 @@ export default function ContactPage() {
                         <info.icon
                           className={`h-6 w-6 ${
                             info.highlight ? 'text-orange-500' : 'text-blue-900'
-                          } flex-shrink-0`}
+                          } shrink-0`}
                         />
                         <div>
                           <p className="font-semibold text-blue-900 mb-1">
@@ -201,21 +317,53 @@ export default function ContactPage() {
             >
               <Card hover={false}>
                 <CardContent className="pt-8">
-                  <h2 className="text-3xl font-bold text-blue-900 mb-6">
-                    Send Us a Message
-                  </h2>
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-3xl font-bold text-blue-900">
+                      Send Us a Message
+                    </h2>
+                    {hasDraft && (
+                      <button
+                        onClick={clearDraft}
+                        className="text-sm text-gray-500 hover:text-red-600 transition-colors"
+                      >
+                        Clear Draft
+                      </button>
+                    )}
+                  </div>
 
                   {submitStatus === 'success' && (
                     <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
                       <div>
                         <p className="font-semibold text-green-900">
-                          Message sent successfully!
+                          Message prepared successfully!
                         </p>
                         <p className="text-sm text-green-700">
-                          We'll get back to you within 24 hours.
+                          Your email client should open. If not, please email us directly at {COMPANY_INFO.email}
                         </p>
                       </div>
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                      <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-semibold text-red-900">
+                          Something went wrong
+                        </p>
+                        <p className="text-sm text-red-700">
+                          Please email us directly at {COMPANY_INFO.email}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {hasDraft && (
+                    <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                      <p className="text-sm text-blue-700">
+                        💾 Draft saved automatically
+                      </p>
                     </div>
                   )}
 
@@ -390,8 +538,12 @@ export default function ContactPage() {
                       loading={isSubmitting}
                       icon={<Send className="h-5 w-5" />}
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? 'Preparing...' : 'Send Message'}
                     </Button>
+
+                    <p className="text-xs text-gray-500 text-center">
+                      By submitting this form, you agree to our privacy policy
+                    </p>
                   </form>
                 </CardContent>
               </Card>
@@ -419,7 +571,7 @@ export default function ContactPage() {
           </motion.div>
 
           <Card hover={false} className="overflow-hidden">
-            <div className="h-96 bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center">
+            <div className="h-96 bg-linear-to-br from-blue-200 to-blue-300 flex items-center justify-center">
               <MapPin className="h-24 w-24 text-blue-900 opacity-30" />
               <p className="text-blue-900 font-semibold ml-4">
                 Interactive Map Placeholder

@@ -12,7 +12,6 @@ import {
   Building,
   Waves,
 } from 'lucide-react';
-import HeroSection from '@/src/components/sections/HeroSection';
 import CTASection from '@/src/components/sections/CTASection';
 import { Card, CardContent } from '@/src/components/ui/Card';
 import { fadeInUp, staggerContainer } from '@/src/lib/animations';
@@ -89,8 +88,8 @@ export default function IndustriesPage() {
     },
     {
       icon: Package,
-      name: 'Maritime & industiral Logistics',
-      description: 'Supply chain and logistics solutions tailored for maritime operations, industrial operations and shipping companies.',
+      name: 'Maritime Logistics',
+      description: 'Supply chain and logistics solutions tailored for maritime operations and shipping companies.',
       challenges: [
         'Complex supply chains',
         'International regulations',
@@ -106,18 +105,18 @@ export default function IndustriesPage() {
     },
     {
       icon: Shield,
-      name: 'Chemical Industry',
-      description: 'Certified services for Chemical production facilities and industrial processes.',
+      name: 'Naval & Defense',
+      description: 'Certified services for naval vessels with security clearance and defense-grade standards.',
       challenges: [
-        'Corrosive materials',
-        'Modern Fabrication standards',
-        'Safety regulations',
+        'Security protocols',
+        'Military specifications',
+        'Classified operations',
         'Highest reliability',
       ],
       solutions: [
-        'Best grade materials',
-        'Advanced fabrication techniques',
-        'Safety-first protocols',
+        'Security-cleared personnel',
+        'Military-grade materials',
+        'Strict documentation',
         'Confidentiality assured',
       ],
     },
@@ -159,15 +158,136 @@ export default function IndustriesPage() {
 
   return (
     <div className="pt-20">
-      {/* Hero */}
-      <HeroSection
-        title="Industries We Serve"
-        subtitle="Specialized Solutions Across Maritime Sectors"
-        description="Tailored marine engineering services for diverse industry needs"
-      />
+      {/* Custom Hero with Text Left, Images Right */}
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-white"
+            >
+              <motion.h1 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                Industries We Serve
+                <span className="block text-orange-500 mt-2">Specialized Solutions</span>
+              </motion.h1>
+              
+              <motion.p 
+                className="text-xl text-gray-200 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                Tailored marine engineering services for diverse industry needs across maritime, industrial, and chemical sectors
+              </motion.p>
+
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <a 
+                  href="#industries" 
+                  className="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-center"
+                >
+                  Explore Industries
+                </a>
+                <a 
+                  href="/contact" 
+                  className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center"
+                >
+                  Contact Us
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right: Interlocking Images Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative h-[500px] lg:h-[600px] gap-3"
+            >
+              {/* Image 1 - Top Left (Marine & Offshore) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="absolute top-0 left-0 w-[48%] h-[45%] rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src="/hero/offshore.jpg"
+                  alt="Marine & Offshore Operations"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-transparent" />
+              </motion.div>
+
+              {/* Image 2 - Top Right (Oil & Gas) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="absolute top-12 right-0 w-[48%] h-[48%] rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src="/project/piping6.jpeg"
+                  alt="Oil & Gas Industry"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-transparent" />
+              </motion.div>
+
+              {/* Image 3 - Bottom Left (Shipbuilding) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute bottom-8 left-0 w-[48%] h-[48%] rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src="/hero/shpMain.jpg"
+                  alt="Shipbuilding & Repair"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 to-transparent" />
+              </motion.div>
+
+              {/* Image 4 - Bottom Right (Port Operations) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="absolute -bottom-4 right-0 w-[48%] h-[45%] rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src="/projectImages/pipes.jpeg"
+                  alt="Port Operations"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-transparent" />
+              </motion.div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-orange-500 rounded-full opacity-20 blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500 rounded-full opacity-20 blur-2xl" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Industries Overview */}
-      <section className="py-20 bg-white">
+      <section id="industries" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -259,8 +379,8 @@ export default function IndustriesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: '8+', label: 'Industries Served' },
-              { value: '10+', label: 'Companies Partnered' },
-              { value: '5+', label: 'Countries Reached' },
+              { value: '200+', label: 'Companies Partnered' },
+              { value: '35+', label: 'Countries Reached' },
               { value: '99%', label: 'Client Retention' },
             ].map((stat, i) => (
               <motion.div
@@ -285,6 +405,8 @@ export default function IndustriesPage() {
       <CTASection
         title="Industry-Specific Solutions"
         description="Contact us to discuss how we can address your sector's unique challenges"
+        backgroundImage="/images/cta-background.jpg"
+        overlayOpacity={85}
       />
     </div>
   );
