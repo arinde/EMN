@@ -96,37 +96,37 @@ export default function HomePage() {
               {
                 title: 'Offshore Platform Maintenance',
                 category: 'Oil & Gas',
-                image: '/images/projects/offshore-platform.jpg',
+                image: '/project/fabrication2.jpeg',
                 description: 'Complete maintenance and structural reinforcement of offshore platform',
               },
               {
                 title: 'Chemical Tanker Retrofit',
                 category: 'Marine Services',
-                image: '/images/projects/chemical-tanker.jpg',
+                image: '/project/project10.jpeg',
                 description: 'Full vessel upgrade including valve systems and tank modifications',
               },
               {
                 title: 'Ship Hull Repair',
                 category: 'Shipbuilding',
-                image: '/images/projects/hull-repair.jpg',
+                image: '/project/overhead4.jpeg',
                 description: 'Emergency hull repair and restoration for cargo vessel',
               },
               {
                 title: 'Port Equipment Fabrication',
                 category: 'Port Operations',
-                image: '/images/projects/port-equipment.jpg',
+                image: '/project/project9.jpeg',
                 description: 'Custom loading equipment for port authority expansion',
               },
               {
                 title: 'Tank Calibration Project',
                 category: 'Industrial',
-                image: '/images/projects/tank-calibration.jpg',
+                image: '/project/project3.jpeg',
                 description: 'Complete gas freeing and calibration for storage terminal',
               },
               {
                 title: 'Naval Vessel Maintenance',
                 category: 'Naval',
-                image: '/images/projects/naval-vessel.jpg',
+                image: '/project/piping4.jpeg',
                 description: 'Comprehensive maintenance and protective coating application',
               },
             ].map((project, i) => (
