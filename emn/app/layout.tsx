@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '../src/components/layouts/Header';
 import Footer from '../src/components/layouts/Footer';
 import StructuredData from '@/src/components/StructuredData';
+import GoogleAnalytics from '@/src/components/GoogleAnalytics';
 
 const inter = localFont({
   src: [
@@ -90,6 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-LZJ0N3GRLH" />
         <StructuredData />
         <Header />
         <main className="min-h-screen">{children}</main>
