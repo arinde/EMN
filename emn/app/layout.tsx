@@ -24,7 +24,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/favicon.ico', // or '/favicon.ico'
+    icon: '/logo.png',
     apple: '/apple-touch-icon.png',
   },
   title: {default : 'EMN MECHANICAL FABRICATION SERVICES LTD - Safety & Quality | Lagos & Agbara Ogun, Nigeria',
