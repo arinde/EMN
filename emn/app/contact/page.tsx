@@ -19,7 +19,21 @@ import { validateEmail, validatePhone } from '@/src/lib/utils';
 import { fadeInUp, slideInLeft, slideInRight } from '@/src/lib/animations';
 import { services } from '@/src/data/services';
 
+
+
 export default function ContactPage() {
+
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "EMN Fabrication Services",
+      "telephone": "+234 803 697 5415",
+      "email": "kunlemustapha27@yahoo.com"
+    }
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -244,7 +258,12 @@ ${formData.message}
   const hasDraft = formData.name || formData.email || formData.phone || formData.message;
 
   return (
+    
     <div className="pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
       {/* Hero */}
       <HeroSection
         title="Contact Us"
